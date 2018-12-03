@@ -1,14 +1,19 @@
 var express = require('express');
 var router = express.Router();
- 
+
+var service = require("../services/userService");
+
+var userService = new service();
 
 router.post('/login', (req, res) => {
     let username = req.body.username;
     let password = req.body.password;
 
     var userCredentials = [{"username":username,"password":password}];
-
-     res.json(userCredentials);
+    var status = userService.authenticate(username,password,function callback(err,result) {
+        res.json(result);
+    });    
+     
 });
 
 

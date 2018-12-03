@@ -3,31 +3,29 @@ var bodyParser = require('body-parser');
 // var multer = require('multer');
 // var upload = multer();
 
-const db = require('./db');
-
 var app = express();
 app.use(bodyParser());
 
-var mysql = require('mysql')
-var connection = db.initConnection();
+// var mysql = require('mysql')
+// var connection = db.initConnection();
 
-// mysql.createConnection({
-//   host     : 'localhost',
-//   user     : 'root',
-//   password : 'mysql',
-//   database : 'vottingapp'
-// });
+// // mysql.createConnection({
+// //   host     : 'localhost',
+// //   user     : 'root',
+// //   password : 'mysql',
+// //   database : 'vottingapp'
+// // });
 
 
-connection.connect()
+// connection.connect()
 
-// connection.query('SELECT 1 + 1 AS solution', function (err, rows, fields) {
-//   if (err) throw err
+// // connection.query('SELECT 1 + 1 AS solution', function (err, rows, fields) {
+// //   if (err) throw err
 
-//   console.log('The solution is: ', rows[0].solution)
-// })
+// //   console.log('The solution is: ', rows[0].solution)
+// // })
 
-connection.end()
+// connection.end()
 
 
  

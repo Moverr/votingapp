@@ -1,11 +1,26 @@
+var db = require("../db");
+
 class UserService{
     constructor() {
+        console.log("Great is the King lord of Lords");
+    }
+
+    authenticate(username,password,callback){
+      var connection =   db.initConnection();
+    connection.query('SELECT  * from user', function (err, rows, fields) {
+        if (err) 
+            callback(err,null)
+        else{
+            callback(null,"User Logged in Successfully"); 
+        }
+            
+        })
         
     }
 
-     create(){
-        //todo: create New User :: 
 
+     create(){
+       
         
     }
 
@@ -18,7 +33,7 @@ class UserService{
     }
 
     list(){
-
+        
     }
     getById(id){
 
@@ -27,3 +42,5 @@ class UserService{
 
 
 }
+
+module.exports = UserService;
