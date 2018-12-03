@@ -1,41 +1,40 @@
 var db = require("../db");
 
-class UserService{
-    constructor() {
-        console.log("Great is the King lord of Lords");
-    }
+class UserService {
+    constructor() {}
 
-    authenticate(username,password,callback){
-      var connection =   db.initConnection();
-    connection.query('SELECT  * from user', function (err, rows, fields) {
-        if (err) 
-            callback(err,null)
-        else{
-            callback(null,"User Logged in Successfully"); 
-        }
-            
-        })
-        
-    }
+    authenticate(username, password, callback) {
+        var connection = db.initConnection();
+        connection.query('SELECT  * from user   WHERE user.name like ' + username + '  AND  user.password LIKE ' + password + ' limit 1 ', function (err, rows, fields) {
+            if (err)
+                callback(err, null)
+            else {
+                var result = rows[0];
+                callback(null, result);
+            }
 
-
-     create(){
-       
-        
-    }
-
-    update(){
+        });
 
     }
 
-    archive(){
+
+    create() {
+
 
     }
 
-    list(){
-        
+    update() {
+
     }
-    getById(id){
+
+    archive() {
+
+    }
+
+    list() {
+
+    }
+    getById(id) {
 
     }
 

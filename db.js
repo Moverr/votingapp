@@ -1,5 +1,5 @@
 var mysql = require('mysql')
- 
+
 
 function initConnection() {
     connection = mysql.createConnection({
@@ -14,6 +14,3 @@ function initConnection() {
 
 
 exports.initConnection = initConnection;
- 
-
-
