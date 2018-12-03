@@ -2,7 +2,7 @@
   "name": "vottingapp",
   "version": "1.0.0",
   "description": "Votting app demostrating",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Moverr/votingapp/issues"
   },
-  "homepage": "https://github.com/Moverr/votingapp#readme"
+  "homepage": "https://github.com/Moverr/votingapp#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
 }
