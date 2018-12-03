@@ -1,18 +1,23 @@
 var express = require('express');
 var router = express.Router();
+ 
 
+router.post('/login', (req, res) => {
+    let username = req.body.username;
+    let password = req.body.password;
 
-router.get('/login', (req, res) => {
-     res.json("Login");
+    var userCredentials = [{"username":username,"password":password}];
+
+     res.json(userCredentials);
 });
 
 
-router.get('/logout', (req, res) => {
+router.post('/logout', (req, res) => {
     res.json("Logout");
 });
 
 
-router.get('/register', (req, res) => {
+router.post('/register', (req, res) => {
     res.json("Register");
 });
 

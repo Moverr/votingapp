@@ -4,6 +4,20 @@ var bodyParser = require('body-parser');
 // var upload = multer();
 
 var app = express();
+app.use(bodyParser());
+
+var mysql = require('mysql')
+var connection = mysql.createConnection({
+  host     : 'localhost',
+  user     : 'root',
+  password : 'mysql',
+  database : 'vottingapp'
+});
+
+connection.connect()
+
+
+
 
 app.use('/user',require('./controllers/user.js'));
 app.use('/profile',require('./controllers/profile.js'));
