@@ -3,7 +3,7 @@ var router = express.Router();
 
 
 router.get('/', (req, res) => {
-     res.json("Hello Rogers");
+     res.json("About to Vote");
 });
 
 module.exports = router;
