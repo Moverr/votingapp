@@ -1,5 +1,7 @@
-const { verifyToken } = require("./verifyToken");
-const jwt = require('jsonwebtoken');
+const {    validateToken} = require("../helpers/validateToken");
+const {    verifyToken} = require("../helpers/verifyToken");
+
+const = require('jsonwebtoken');
 var express = require('express');
 var router = express.Router();
 
@@ -18,21 +20,12 @@ router.post('/login', (req, res) => {
 });
 
 
-router.post('/logout',verifyToken, (req, res) => {
-    jwt.verify(req.token,'SECRETKEY', (err,authData) => {
-        if(err){
-            console.log(err);
-            res.sendStatus(403);
-        }else{
-            res.json({
-                message:"Interesting",
-                authData
-            });
-        }
-       
+router.post('/logout', verifyToken, (req, res) => {
+    validateToken(req, res, () => {
+        console.log("Logout Information ");
     });
 
-    
+
 });
 
 
