@@ -2,7 +2,7 @@ const exjwt = require('express-jwt');
 const jwt = require('jsonwebtoken');
 
 var  jwtMW = exjwt({
-    secret: 'SECRET KEY '
+    secret: 'SECRETKEY'
 });
 
 
@@ -11,8 +11,10 @@ class Util {
     constructor() {}
 
      getToken(result) {
-        return jwt.sign({ id: result.id, username: result.username }, 'SECRET KEY', { expiresIn: 129600 });
+        return jwt.sign({result}, 'SECRETKEY', { expiresIn: 129600 });
     }
+
+
     
 }
 

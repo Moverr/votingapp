@@ -1,3 +1,5 @@
+const { verifyToken } = require("./verifyToken");
+const jwt = require('jsonwebtoken');
 var express = require('express');
 var router = express.Router();
 
@@ -16,16 +18,26 @@ router.post('/login', (req, res) => {
 });
 
 
-router.post('/logout', (req, res) => {
-    res.json("Logout");
+router.post('/logout',verifyToken, (req, res) => {
+    jwt.verify(req.token,'SECRETKEY', (err,authData) => {
+        if(err){
+            console.log(err);
+            res.sendStatus(403);
+        }else{
+            res.json({
+                message:"Interesting",
+                authData
+            });
+        }
+       
+    });
+
+    
 });
 
 
 router.post('/register', (req, res) => {
     res.json("Register");
 });
-
-
-
 
 module.exports = router;
