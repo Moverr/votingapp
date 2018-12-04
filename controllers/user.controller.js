@@ -30,8 +30,14 @@ router.post('/logout', verifyToken, (req, res) => {
 });
 
 
+//todo: this is a public api 
 router.post('/register', (req, res) => {
-    res.json("Register");
+    let username = req.body.username;
+    let password = req.body.password;
+    
+    userService.authenticate(username, password, function callback(err, result) {
+        res.json(result);
+    });
 });
 
 module.exports = router;

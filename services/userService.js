@@ -40,10 +40,22 @@ class UserService {
     }
 
 
-    create() {
 
+    create(username, password, callback) {
+        var connection = db.initConnection();
+        connection.query('INSERT INTO from user(username,password) VALUES("'+username+'","'+password+'") ', function (err, rows, fields) {
+            if (err)
+                callback(err, null)
+            else {
+                result = "Record saved Succesfully";
+                callback(null, result);
+            }
+
+        });
 
     }
+
+
 
     update() {
 
