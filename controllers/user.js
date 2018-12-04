@@ -1,7 +1,7 @@
 const {    validateToken} = require("../helpers/validateToken");
 const {    verifyToken} = require("../helpers/verifyToken");
 
-const = require('jsonwebtoken');
+
 var express = require('express');
 var router = express.Router();
 
@@ -21,8 +21,9 @@ router.post('/login', (req, res) => {
 
 
 router.post('/logout', verifyToken, (req, res) => {
-    validateToken(req, res, () => {
+    validateToken(req, res, (authData) => {
         console.log("Logout Information ");
+         res.json(authData);
     });
 
 
