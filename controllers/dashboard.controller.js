@@ -10,7 +10,6 @@ var express = require('express');
 var router = express.Router();
 var jsonpatch = require('jsonpatch');
 
- 
 
 router.patch('/', verifyToken, (req, res) => {
     validateToken(req, res, (authData) => {
@@ -23,6 +22,6 @@ router.patch('/', verifyToken, (req, res) => {
     });
 });
 
- 
+
 
 module.exports = router;
