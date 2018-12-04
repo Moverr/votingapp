@@ -1,5 +1,9 @@
-const {    validateToken} = require("../helpers/validateToken");
-const {    verifyToken} = require("../helpers/verifyToken");
+const {
+    validateToken
+} = require("../helpers/validateToken");
+const {
+    verifyToken
+} = require("../helpers/verifyToken");
 
 
 var express = require('express');
@@ -23,7 +27,7 @@ router.post('/login', (req, res) => {
 router.post('/logout', verifyToken, (req, res) => {
     validateToken(req, res, (authData) => {
         console.log("Logout Information ");
-         res.json(authData);
+        res.json(authData);
     });
 
 
@@ -34,9 +38,17 @@ router.post('/logout', verifyToken, (req, res) => {
 router.post('/register', (req, res) => {
     let username = req.body.username;
     let password = req.body.password;
-    
-    userService.authenticate(username, password, function callback(err, result) {
-        res.json(result);
+
+    userService.create(username, password, function callback(err, result) {
+        if (error) {
+            res.json({
+                message: "Something went wrong could not save the record"
+            });
+        } else {
+            res.json({
+                message: "Record Saved Succesfully "
+            });
+        }
     });
 });
 
